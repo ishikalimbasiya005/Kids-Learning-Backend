@@ -10,7 +10,7 @@ const FeedbackAdmin = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/feedback")
+      .get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/feedback`)
       .then((res) => setFeedbacks(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -18,7 +18,7 @@ const FeedbackAdmin = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this feedback?")) {
       try {
-        await axios.delete(`http://localhost:5000/feedback/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/feedback/${id}`);
         setFeedbacks(feedbacks.filter((f) => f._id !== id)); // UI se remove
       } catch (err) {
         console.error("Error deleting feedback:", err);

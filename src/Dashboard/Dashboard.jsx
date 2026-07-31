@@ -14,7 +14,7 @@ const Dashboard = () => {
     useEffect(() => {
         const checkAdmin = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/admin/check", { withCredentials: true });
+                const res = await axios.get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/admin/check`, { withCredentials: true });
                 if (!res.data.isAdmin) {
                     navigate("/Admin"); 
                 } else {
@@ -28,7 +28,7 @@ const Dashboard = () => {
     }, [navigate]);
 
     const handleLogout = async () => {
-        await axios.post("http://localhost:5000/admin/logout", {}, { withCredentials: true });
+        await axios.post(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/admin/logout`, {}, { withCredentials: true });
         navigate("/");
     };
 

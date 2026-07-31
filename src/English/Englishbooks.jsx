@@ -11,7 +11,7 @@ const Englishbooks = () => {
 
     const fetchChapters = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/books");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/books`);
         const english = res.data.find((s) => s.subject === "English");
         if (english?.chapters) {
           // Filter out static chapters and the duplicate ones with broken images

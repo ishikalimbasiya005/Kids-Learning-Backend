@@ -36,7 +36,7 @@ export default function Register() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:5000/auth/register",
+        `${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/auth/register`,
         { username, email, password },
         { withCredentials: true }
       );

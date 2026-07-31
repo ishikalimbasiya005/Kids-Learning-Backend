@@ -9,7 +9,7 @@ const ManageUsers = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get("http://localhost:5000/admin/users", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/admin/users`, {
         withCredentials: true,
       });
       setUsers(res.data);

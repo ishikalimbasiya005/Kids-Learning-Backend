@@ -14,7 +14,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/feedback",
+        `${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/feedback`,
         { name, email, feedback }
       );
       alert(res.data.message); 

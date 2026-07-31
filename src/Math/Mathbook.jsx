@@ -11,7 +11,7 @@ const MathBook = () => {
 
         const fetchBooks = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/books");
+                const res = await axios.get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/books`);
                 const math = res.data.find((s) => s.subject === "Math");
                 if (math?.chapters) {
                     // Filter out static books

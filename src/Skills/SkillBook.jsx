@@ -11,7 +11,7 @@ const SkillBook = () => {
 
         // Fetch Skills chapters from MongoDB
         axios
-            .get("http://localhost:5000/books")
+            .get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/books`)
             .then((res) => {
                 const skills = res.data.find((s) => s.subject === "Skills");
                 if (skills?.chapters) {

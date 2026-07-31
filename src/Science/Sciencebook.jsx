@@ -11,7 +11,7 @@ const Sciencebook = () => {
 
     // Fetch Science books from MongoDB
     axios
-      .get("http://localhost:5000/books")
+      .get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/books`)
       .then((res) => {
         const science = res.data.find((s) => s.subject === "Science");
         if (science?.chapters) {

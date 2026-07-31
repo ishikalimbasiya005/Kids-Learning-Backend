@@ -16,7 +16,7 @@ const Header = () => {
     if (!confirmLogout) return; // user ne cancel press kiya
 
     try {
-      await fetch("http://localhost:5000/users/logout", {
+      await fetch(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/users/logout`, {
         method: "POST",
         credentials: "include",
       });

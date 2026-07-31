@@ -23,7 +23,7 @@ const UpdateChapter = () => {
   useEffect(() => {
     // if subjects not passed, fetch from backend
     if (!subjects.length) {
-      axios.get("http://localhost:5000/books")
+      axios.get(`${process.env.REACT_APP_API_URL || "${process.env.REACT_APP_API_URL || "http://localhost:5000"}"}/books`)
         .then(res => setSubjects(res.data))
         .catch(err => console.error(err));
     }
@@ -36,7 +36,7 @@ const UpdateChapter = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/books/${selectedSubject}/chapter/${chapterId}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/books/${selectedSubject}/chapter/${chapterId}`, {
         name: chapterName,
         link: chapterLink,
         img: chapterImg,
