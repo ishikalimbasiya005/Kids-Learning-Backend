@@ -2,10 +2,6 @@
 
 This repository contains the backend REST API for **Magic Learn World**, an interactive educational platform for kids. It is built using Node.js, Express.js, and MongoDB, and handles user authentication, admin management, and database operations for educational content.
 
-🌐 **Live API URL:** `https://kids-learning-backend-2gwg.onrender.com`
-
-*(Note: Visiting the base URL will show "Cannot GET /" as this is purely a REST API, not a web interface. You must hit the specific endpoints listed below.)*
-
 ---
 
 ## 🛠️ Tech Stack
